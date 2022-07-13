@@ -5,7 +5,8 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "microIoT": "github:dfrobot/pxt-dfrobot-microiot#v1.2.0"
+        "microIoT": "github:dfrobot/pxt-dfrobot-microiot#v1.2.0",
+        "pxt-DHT11_DHT22": "github:alankrantas/pxt-dht11_dht22#v0.0.3"
     },
     "files": [
         "main.blocks",

@@ -1,16 +1,21 @@
 input.onButtonPressed(Button.A, function () {
+    dht11_dht22.queryData(
+    DHTtype.DHT11,
+    DigitalPin.P1,
+    true,
+    false,
+    true
+    )
+    dht11_dht22.selectTempType(tempType.celsius)
+    microIoT.microIoT_SendMessage(convertToText(dht11_dht22.readData(dataType.humidity)), microIoT.TOPIC.topic_0)
+    microIoT.microIoT_SendMessage(convertToText(dht11_dht22.readData(dataType.temperature)), microIoT.TOPIC.topic_0)
     microIoT.microIoT_clear()
-    data = pins.analogReadPin(AnalogPin.P0)
-    publish(0, convertToText(data))
+    microIoT.microIoT_showUserText(1, "temp: " + dht11_dht22.readData(dataType.temperature) + " oC")
+    microIoT.microIoT_showUserText(2, "humd: " + dht11_dht22.readData(dataType.humidity))
 })
-function publish (num: number, text: string) {
-    microIoT.microIoT_SendMessage(text, microIoT.TOPIC.topic_0)
-    microIoT.microIoT_showUserText(num, "Send... " + text)
-}
 input.onButtonPressed(Button.AB, function () {
     control.reset()
 })
-let data = 0
 let wifi_name = "izowifi"
 let password = "izo1234@"
 let iot_id = "lmZB9bXGR"
