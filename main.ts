@@ -1,7 +1,7 @@
 input.onButtonPressed(Button.A, function () {
     dht11_dht22.queryData(
     DHTtype.DHT11,
-    DigitalPin.P1,
+    DigitalPin.P0,
     true,
     false,
     true
@@ -10,8 +10,8 @@ input.onButtonPressed(Button.A, function () {
     microIoT.microIoT_SendMessage(convertToText(dht11_dht22.readData(dataType.humidity)), microIoT.TOPIC.topic_0)
     microIoT.microIoT_SendMessage(convertToText(dht11_dht22.readData(dataType.temperature)), microIoT.TOPIC.topic_0)
     microIoT.microIoT_clear()
-    microIoT.microIoT_showUserText(1, "temp: " + dht11_dht22.readData(dataType.temperature) + " oC")
-    microIoT.microIoT_showUserText(2, "humd: " + dht11_dht22.readData(dataType.humidity))
+    microIoT.microIoT_showUserText(1, "Temp: " + dht11_dht22.readData(dataType.temperature) + " oC")
+    microIoT.microIoT_showUserText(2, "Humd: " + dht11_dht22.readData(dataType.humidity) + "%")
 })
 input.onButtonPressed(Button.AB, function () {
     control.reset()
