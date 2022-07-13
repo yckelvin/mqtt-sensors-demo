@@ -2,7 +2,7 @@ input.onButtonPressed(Button.A, function () {
     microIoT.microIoT_clear()
     lightintensity = convertToText(pins.analogReadPin(AnalogPin.P0))
     microIoT.microIoT_SendMessage(lightintensity, microIoT.TOPIC.topic_0)
-    microIoT.microIoT_showUserText(0, "Light: " + lightintensity)
+    microIoT.microIoT_showUserText(0, "Send... " + lightintensity)
 })
 input.onButtonPressed(Button.AB, function () {
     control.reset()
