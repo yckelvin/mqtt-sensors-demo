@@ -14,6 +14,7 @@ microIoT.SERVERS.English
 )
 basic.forever(function () {
     lightintensity = 1023 - pins.analogReadPin(AnalogPin.P0)
+    microIoT.microIoT_showUserText(0, "Light: " + convertToText(lightintensity))
     if (lightintensity < 500) {
         basic.showLeds(`
             # # # # #
