@@ -1,7 +1,11 @@
 input.onButtonPressed(Button.A, function () {
     microIoT.microIoT_clear()
-    data = pins.analogReadPin(AnalogPin.P0)
-    publish(0, convertToText(data))
+    distance = sonar.ping(
+    DigitalPin.P0,
+    DigitalPin.P1,
+    PingUnit.Centimeters
+    )
+    publish(0, convertToText(distance))
 })
 function publish (num: number, text: string) {
     microIoT.microIoT_SendMessage(text, microIoT.TOPIC.topic_0)
@@ -10,7 +14,7 @@ function publish (num: number, text: string) {
 input.onButtonPressed(Button.AB, function () {
     control.reset()
 })
-let data = 0
+let distance = 0
 let wifi_name = "izowifi"
 let password = "izo1234@"
 let iot_id = "lmZB9bXGR"
