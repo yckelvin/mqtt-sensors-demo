@@ -15,6 +15,7 @@ microIoT.SERVERS.English
 basic.forever(function () {
     lightintensity = 1023 - pins.analogReadPin(AnalogPin.P0)
     microIoT.microIoT_showUserText(0, "Light: " + convertToText(lightintensity))
+    microIoT.microIoT_SendMessage(convertToText(lightintensity), microIoT.TOPIC.topic_0)
     if (lightintensity < 500) {
         basic.showLeds(`
             # # # # #
@@ -26,4 +27,5 @@ basic.forever(function () {
     } else {
         basic.clearScreen()
     }
+    basic.pause(500)
 })
