@@ -1,7 +1,8 @@
 input.onButtonPressed(Button.A, function () {
     microIoT.microIoT_clear()
-    data = pins.analogReadPin(AnalogPin.P0)
-    publish(0, convertToText(data))
+    light_level += -50
+    pins.analogWritePin(AnalogPin.P0, light_level)
+    publish(0, convertToText(light_level))
 })
 function publish (num: number, text: string) {
     microIoT.microIoT_SendMessage(text, microIoT.TOPIC.topic_0)
@@ -10,7 +11,14 @@ function publish (num: number, text: string) {
 input.onButtonPressed(Button.AB, function () {
     control.reset()
 })
-let data = 0
+input.onButtonPressed(Button.B, function () {
+    microIoT.microIoT_clear()
+    light_level += 50
+    pins.analogWritePin(AnalogPin.P0, light_level)
+    publish(0, convertToText(light_level))
+})
+let light_level = 0
+light_level = 0
 let wifi_name = "izowifi"
 let password = "izo1234@"
 let iot_id = "lmZB9bXGR"
