@@ -1,16 +1,21 @@
 input.onButtonPressed(Button.A, function () {
     microIoT.microIoT_clear()
-    data = pins.analogReadPin(AnalogPin.P0)
-    publish(0, convertToText(data))
+    degree += -30
+    microIoT.microIoT_ServoRun(microIoT.aServos.S1, degree)
+    publish(0, convertToText(degree))
 })
 function publish (num: number, text: string) {
     microIoT.microIoT_SendMessage(text, microIoT.TOPIC.topic_0)
     microIoT.microIoT_showUserText(num, "Send... " + text)
 }
-input.onButtonPressed(Button.AB, function () {
-    control.reset()
+input.onButtonPressed(Button.B, function () {
+    microIoT.microIoT_clear()
+    degree += 30
+    microIoT.microIoT_ServoRun(microIoT.aServos.S1, degree)
+    publish(0, convertToText(degree))
 })
-let data = 0
+let degree = 0
+degree = 0
 let wifi_name = "izowifi"
 let password = "izo1234@"
 let iot_id = "lmZB9bXGR"
