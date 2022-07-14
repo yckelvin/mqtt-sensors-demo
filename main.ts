@@ -1,6 +1,6 @@
 input.onButtonPressed(Button.A, function () {
     microIoT.microIoT_clear()
-    data = pins.analogReadPin(AnalogPin.P0)
+    data = pins.digitalReadPin(DigitalPin.P0)
     publish(0, convertToText(data))
 })
 function publish (num: number, text: string) {
