@@ -1,5 +1,5 @@
 {
-    "name": "MQTT Sensors Demo",
+    "name": "MQTT Sensors Demo motor",
     "description": "",
     "dependencies": {
         "core": "*",
