@@ -1,7 +1,7 @@
 input.onButtonPressed(Button.A, function () {
     distance = sonar.ping(
-    DigitalPin.P0,
-    DigitalPin.P1,
+    DigitalPin.P13,
+    DigitalPin.P14,
     PingUnit.Centimeters
     )
     publish(0, convertToText(distance))
